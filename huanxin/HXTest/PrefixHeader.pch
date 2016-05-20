@@ -1,0 +1,24 @@
+//
+//  PrefixHeader.pch
+//  HXTest
+//
+//  Created by 覃鹏成 on 16/5/19.
+//  Copyright © 2016年 覃鹏成. All rights reserved.
+//
+
+
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import "EMSDKFull.h"
+#import "EaseUI.h"
+#import "MBProgressHUD.h"
+#import "Masonry.h"
+
+
+#define DEMO_CALL 1
+
+#endif
+
+
