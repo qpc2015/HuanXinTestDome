@@ -6,8 +6,8 @@
 //  Copyright © 2016年 覃鹏成. All rights reserved.
 //
 
-#import "EaseConversationListViewController.h"
+#import "EMConversationsViewController.h"
 
-@interface YSConversationListController : EaseConversationListViewController
+@interface YSConversationListController : EMConversationsViewController
 
 @end

@@ -11,13 +11,18 @@
 #ifdef __OBJC__
 
 #import <UIKit/UIKit.h>
-#import "EMSDKFull.h"
-#import "EaseUI.h"
-#import "MBProgressHUD.h"
+#import <Hyphenate/Hyphenate.h>
 #import "Masonry.h"
-
+#import "FLAnimatedImage.h"
+#import "EMHeaders.h"
+#import <MBProgressHUD.h>
 
 #define DEMO_CALL 1
+#define kColor_LightGray [UIColor colorWithRed:245 / 255.0 green:245 / 255.0 blue:245 / 255.0 alpha:1.0]
+
+#define kColor_Gray [UIColor colorWithRed:229 / 255.0 green:229 / 255.0 blue:229 / 255.0 alpha:1.0]
+
+#define kColor_Blue [UIColor colorWithRed:45 / 255.0 green:116 / 255.0 blue:215 / 255.0 alpha:1.0]
 
 #endif
 

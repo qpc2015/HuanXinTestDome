@@ -9,7 +9,9 @@
 #import "ViewController.h"
 #import "YSConversationListController.h"
 #import "AppDelegate.h"
-#import "ChatDemoHelper.h"
+#import "EMDemoHelper.h"
+#import "DemoCallManager.h"  // 1v1实时通话功能的头文件
+#import "DemoConfManager.h"  // 多人实时通话功能的头文件
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
@@ -28,17 +30,14 @@
 {
     if(self.accountTF.text && self.accountTF.text){
         EMError *error = [[EMClient sharedClient] registerWithUsername:self.accountTF.text password:self.passwordTF.text];
-        
         if (error==nil) {
             NSLog(@"注册成功");
         }else{
-            NSLog(@"注册失败 :%@",error);
+            NSLog(@"注册失败 :%@",error.errorDescription);
+            [self showHint:error.errorDescription];
         }
     }
-
-    
 }
-
 
 - (IBAction)loginClick:(id)sender {
     if(self.accountTF.text && self.accountTF.text){
@@ -46,21 +45,17 @@
         
         if (error==nil) {
             NSLog(@"登录成功");
-            //切换聊天列表为跟控制器
-            YSConversationListController  *listVC = [[YSConversationListController alloc] init];
-            listVC.title = @"消息列表";
-            
-            [ChatDemoHelper shareHelper].mainVC = listVC;
-            
+            [EMDemoHelper shareHelper];
+            [DemoCallManager sharedManager];  // 初始化1v1实时通话功能的单例
+            [DemoConfManager sharedManager];  // 初始化多人实时通话功能的单例
+            YSConversationListController *listVC = [[YSConversationListController alloc] init];
             [AppDelegate getAppDelegate].window.rootViewController = [[UINavigationController alloc] initWithRootViewController:listVC];
             
         }else{
-            NSLog(@"登录失败 :%@",error);
+            NSLog(@"登录失败 :%@",error.errorDescription);
+            [self showHint:error.errorDescription];
         }
     }
-
-    
-    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

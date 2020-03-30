@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface AppDelegate () <EMClientDelegate>
 
@@ -22,15 +23,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    NSString *appKey = @"fdd#yishi";
-    
-    [[EaseSDKHelper shareHelper] easemobApplication:application didFinishLaunchingWithOptions:launchOptions appkey:appKey apnsCertName:nil otherConfig:@{kSDKConfigEnableConsoleLogger : [NSNumber numberWithBool:YES]}];
+    NSString *appKey = @"1102200326065464#hxtest";
+    IQKeyboardManager.sharedManager.enable = YES;
     
     EMOptions *options = [EMOptions optionsWithAppkey:appKey];
-    //    options.apnsCertName = @"";
     [[EMClient sharedClient] initializeSDKWithOptions:options];
-    
-
     [[EMClient sharedClient] addDelegate:self delegateQueue:nil];
     
     return YES;
@@ -42,6 +39,19 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[EMClient sharedClient] logout:YES completion:^(EMError *aError) {
+            if (aError) {
+                [EMAlertController showErrorAlert:aError.errorDescription];
+            } else {
+                EMDemoOptions *options = [EMDemoOptions sharedOptions];
+                options.isAutoLogin = NO;
+                options.loggedInUsername = @"";
+                [options archive];
+                
+    //            [[ApplyViewController shareController] clear];
+                [[NSNotificationCenter defaultCenter] postNotificationName:ACCOUNT_LOGIN_CHANGED object:@NO];
+            }
+    }];
     [[EMClient sharedClient] applicationDidEnterBackground:application];
 }
 

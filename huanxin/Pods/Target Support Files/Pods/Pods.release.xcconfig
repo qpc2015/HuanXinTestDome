@@ -1,6 +1,0 @@
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/HyphenateFullSDK" "${PODS_ROOT}/Headers/Public/Masonry"
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/HyphenateFullSDK/HyphenateFullSDK/lib" $(inherited) "${PODS_ROOT}/HyphenateFullSDK/HyphenateFullSDK/lib" $(inherited) "${PODS_ROOT}/HyphenateFullSDK/HyphenateFullSDK/lib" $(inherited) "${PODS_ROOT}/HyphenateFullSDK/HyphenateFullSDK/lib" $(inherited) "${PODS_ROOT}/HyphenateFullSDK/HyphenateFullSDK/lib"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/HyphenateFullSDK" -isystem "${PODS_ROOT}/Headers/Public/Masonry"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"HyphenateFullSDK_arm64" -l"HyphenateFullSDK_armv7" -l"HyphenateFullSDK_armv7s" -l"HyphenateFullSDK_i386" -l"HyphenateFullSDK_x86_64" -l"Masonry" -l"c++" -l"iconv" -l"resolv" -l"sqlite3" -l"stdc++.6.0.9" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CoreMedia" -framework "Foundation" -framework "ImageIO" -framework "MobileCoreServices" -framework "SystemConfiguration" -framework "UIKit"
-PODS_ROOT = ${SRCROOT}/Pods

@@ -7,6 +7,7 @@
 //
 
 #import "YSConversationListController.h"
+#import "EMChatViewController.h"
 
 @interface YSConversationListController ()<EMChatManagerDelegate>
 
@@ -22,12 +23,6 @@
     [super viewWillAppear:animated];
     
     [self tableViewDidTriggerHeaderRefresh];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
 }
 
 - (void)viewDidLoad {
@@ -70,69 +65,27 @@
 - (void)messageClick:(UIButton *)btn
 {
     if(self.messageTF.text.length > 0){
-            EaseMessageViewController *message = [[EaseMessageViewController alloc] initWithConversationChatter:self.messageTF.text conversationType:EMConversationTypeChat];
-        [self.navigationController pushViewController:message animated:YES];
+        EMChatViewController *chatController = [[EMChatViewController alloc] initWithConversationId:self.messageTF.text type:EMConversationTypeChat createIfNotExist:YES];
+        [self.navigationController pushViewController:chatController animated:YES];
     }
-
-}
-
-
-- (void)keyboardWillShow:(NSNotification *)noti
-{
-    NSDictionary *dict = noti.userInfo;
-    NSTimeInterval duration = [dict[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    
-    [UIView animateWithDuration:duration animations:^{
-        self.view.transform = CGAffineTransformMakeTranslation(0, -200);
-    }];
-    
-}
-
-- (void)keyboardWillHide:(NSNotification *)noti
-{
-    NSDictionary *dict = noti.userInfo;
-    NSTimeInterval duration = [dict[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    
-    [UIView animateWithDuration:duration animations:^{
-        self.view.transform = CGAffineTransformIdentity;
-    }];
-    
-    
 }
 
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
     [self.view endEditing:YES];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
-
 
 // 收到消息回调
-- (void)didReceiveMessages:(NSArray *)aMessages
-{
+- (void)didReceiveMessages:(NSArray *)aMessages{
     [self tableViewDidTriggerHeaderRefresh];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

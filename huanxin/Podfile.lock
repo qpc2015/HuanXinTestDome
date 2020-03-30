@@ -1,13 +1,46 @@
 PODS:
-  - HyphenateFullSDK (3.1.2)
+  - FLAnimatedImage (1.0.12)
+  - Hyphenate (3.6.5)
+  - IQKeyboardManager (6.5.4)
   - Masonry (1.0.0)
+  - MBProgressHUD (1.1.0)
+  - MJRefresh (3.3.1)
+  - SDWebImage (4.4.8):
+    - SDWebImage/Core (= 4.4.8)
+  - SDWebImage/Core (4.4.8)
+  - SDWebImage/GIF (4.4.8):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
 
 DEPENDENCIES:
-  - HyphenateFullSDK
+  - FLAnimatedImage
+  - Hyphenate
+  - IQKeyboardManager
   - Masonry
+  - MBProgressHUD (~> 1.1.0)
+  - MJRefresh
+  - SDWebImage (~> 4.0)
+  - SDWebImage/GIF
+
+SPEC REPOS:
+  trunk:
+    - FLAnimatedImage
+    - Hyphenate
+    - IQKeyboardManager
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - SDWebImage
 
 SPEC CHECKSUMS:
-  HyphenateFullSDK: f6ed4f5fed2b41f344eab73b451a27f1e8aa8ba2
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Hyphenate: de934686fa85bc436175a8c1b087bda40a5164d0
+  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 3d23ba1c6f8c0305bf6eb6d504ef91ac147233d4
+
+COCOAPODS: 1.9.0.beta.2
