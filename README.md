@@ -4,8 +4,8 @@
 
 更新环信sdk为Hyphenate (3.6.5)
 
-https://github.com/qpc2015/HuanXinTestDome/blob/master/screenshot/WechatIMG1.jpeg
-https://github.com/qpc2015/HuanXinTestDome/blob/master/screenshot/WechatIMG2.jpeg
+![](https://github.com/qpc2015/HuanXinTestDome/blob/master/screenshot/WechatIMG1.jpeg)
+![](https://github.com/qpc2015/HuanXinTestDome/blob/master/screenshot/WechatIMG2.jpeg)
 
 集成环信聊天3.0(包括语音视频通话基本使用)
 
